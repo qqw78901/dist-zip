@@ -1,0 +1,20 @@
+{
+  "name": "dist-zip",
+  "version": "1.1.1",
+  "description": "该插件实现压缩打包后的dist文件夹里的文件，方便日常工作上传到资源服务器",
+  "main": "index.js",
+  "bin": {
+    "dist-zip":"./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wenqiZuo",
+  "license": "ISC",
+  "dependencies": {
+    "zip-local": "^0.3.4"
+  },
+  "engines": {
+    "node": ">=0.11.0"
+  }
+}
