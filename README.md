@@ -34,10 +34,24 @@ npm install dist-zip --save-dev
 ```
 
 ##可传参数
+
+- 目录名称
  dist-zip 跟上子目录名称 
 
 如果当前目录下有子目录abc，你需要压缩abc,可以dist-zip abc
 
  **注意：不支持二级目录，不支持执行dist-zip abc/bcd，本咸鱼觉得这样已经满足需求了不想加入目录下钻，请在abc目录下再执行dist-zip**  
+
+- 压缩版命名是否添加版本号
+
+> exmaple: dist-zip -v
+> output: xxxx_v1.0.0_xxx.zip
+
+##更新
+
+- v1.2.0 引入optimist 添加版本号功能 -tag
+- v1.2.1 修复参数读取bug，将-tag改成更简单的-v，文件名版本号前加v
+- v1.3.0 加颜色
+- v1.3.1 除去debug输出
 
  

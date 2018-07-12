@@ -1,9 +1,10 @@
 var path = require('path');
 var fs = require("fs");
+var colors = require('colors/safe');
 // 引入插件
 var zipper = require('zip-local');
 
-module.exports = function (sourcePath) {
+module.exports = function (sourcePath, addVersionTag) {
     var projectRoot = process.cwd();
     var packageInfo = require(path.join(projectRoot, './package.json'));
     var date = new Date();
@@ -14,8 +15,9 @@ module.exports = function (sourcePath) {
     d += (date.getDate() < 10 ? "0" : '') + date.getDate().toString() + "_";
     d += (date.getHours() < 10 ? "0" : '') + date.getHours().toString();
     d += (date.getMinutes() < 10 ? "0" : '') + date.getMinutes().toString() + "_";
-    d += (date.getSeconds() < 10 ? "0" : '') + date.getSeconds().toString()+"s";
-    var zip = SOURCEPath + "_" + packageInfo.name + "_" + d;
+    d += (date.getSeconds() < 10 ? "0" : '') + date.getSeconds().toString() + "s";
+    var versionTag = addVersionTag ? ('_v' + packageInfo.version) : '';
+    var zip = SOURCEPath + "_" + packageInfo.name + versionTag + "_" + d;
 
     if (!fs.existsSync(SOURCEPath)) {
         console.warn(SOURCEPath + " is not exist");
@@ -27,5 +29,5 @@ module.exports = function (sourcePath) {
     }
 
     zipper.sync.zip(SOURCEPath).compress().save("zip_dist/" + zip + ".zip");
-    console.log(`---------压缩完成 文件名是:${zip}---------`);
+    console.log(`${colors.green('---------压缩完成 文件名是: ')}${colors.red.bold(zip)} ${colors.green('---------')}`);
 }

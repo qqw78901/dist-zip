@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-try{
-    require('../zip.js')(process.argv[2]);
+try {
+    var argv = require('optimist').boolean('v').argv;
+    require('../zip.js')(argv._[0], argv.v);
     process.exit(0);
-}catch(e){
+} catch (e) {
     process.exit(1);
 }
