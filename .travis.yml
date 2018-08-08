@@ -3,3 +3,6 @@ deploy:
   provider: npm
   email: "qqw78901"
   api_key: "$npm_api_key"
+  on:
+    tags: true
+after_deploy: "echo 'done'"
