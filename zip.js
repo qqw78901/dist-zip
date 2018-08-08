@@ -20,7 +20,7 @@ module.exports = function (sourcePath, addVersionTag) {
     var zip = SOURCEPath + "_" + packageInfo.name + versionTag + "_" + d;
 
     if (!fs.existsSync(SOURCEPath)) {
-        console.warn(SOURCEPath + " is not exist");
+        console.warn(SOURCEPath + " 文件夹不存在");
         return;
     }
     // 保存压缩文件的输出文件夹

@@ -1,6 +1,13 @@
 # dist-zip
+<p align="left">
+  <a href="https://www.npmjs.com/package/dist-zip"><img src="https://img.shields.io/npm/v/dist-zip.svg?style=flat-square" alt="Build Status"></a>
+  <a href="https://www.npmjs.com/package/dist-zip"><img src="https://img.shields.io/npm/dt/dist-zip.svg?style=flat-square" alt="Downloads"></a>
+  <a href="https://github.com/qqw78901/dist-zip"><img src="https://img.shields.io/travis/qqw78901/dist-zip.svg?style=flat-square" alt="Build Status"></a>
+</p>
 
 该插件实现压缩打包后的dist文件夹里的文件，方便日常工作上传到资源服务器
+
+
 
 ##功能
 
@@ -53,5 +60,6 @@ npm install dist-zip --save-dev
 - v1.2.1 修复参数读取bug，将-tag改成更简单的-v，文件名版本号前加v
 - v1.3.0 加颜色
 - v1.3.1 除去debug输出
+- v1.3.4 更新文件夹不存在输出为中文
 
  
