@@ -1,0 +1,13 @@
+language: node_js
+install: true
+node_js:
+  - "8"
+script: 
+ - npm run publish
+
+deploy:
+  provider: npm
+  email: "qqw78901"
+  api_key: npm_api_key
+    on:
+    tags: true
