@@ -6,7 +6,16 @@ var zipper = require('zip-local');
 
 module.exports = function (sourcePath, addVersionTag) {
     var projectRoot = process.cwd();
-    var packageInfo = require(path.join(projectRoot, './package.json'));
+    var packageInfo;
+    try{
+        var packageJSONPath = path.join(projectRoot, './package.json');
+        packageInfo = require(packageJSONPath);
+    }catch(e){
+        packageInfo={
+            name:'no_package',
+            version:'0.0.0'
+        }
+    }
     var date = new Date();
     //如果有配置目录，优先使用目录
     var SOURCEPath = sourcePath || "dist";

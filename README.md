@@ -61,5 +61,6 @@ npm install dist-zip --save-dev
 - v1.3.0 加颜色
 - v1.3.1 除去debug输出
 - v1.3.4 更新文件夹不存在输出为中文
+- v1.3.5 修复无package.json时不报错且无成功提示的bug
 
  
