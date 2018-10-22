@@ -4,7 +4,7 @@ var colors = require('colors/safe');
 // 引入插件
 var zipper = require('zip-local');
 
-module.exports = function (sourcePath, addVersionTag) {
+module.exports = function (sourcePath, addVersionTag,needReturnBuffer) {
     var projectRoot = process.cwd();
     var packageInfo;
     try{
@@ -36,7 +36,31 @@ module.exports = function (sourcePath, addVersionTag) {
     if (!fs.existsSync("zip_dist")) {
         fs.mkdirSync('zip_dist');
     }
+    // if(includeCurrentFolder){
+    //     console.log('includeCurrentFolder')
+    //     fs.mkdirSync("zip_dist/" + zip + "/"+sourcePath);
+    //     var memery = zipper.sync.zip(SOURCEPath);
+    //     console.log(memery);
+    //     // fs.copyFileSync()
+    //     memery.compress().save("zip_dist/" + zip + ".zip");
+    // }else{
+    //     zipper.sync.zip(SOURCEPath).compress().save("zip_dist/" + zip + ".zip");
 
-    zipper.sync.zip(SOURCEPath).compress().save("zip_dist/" + zip + ".zip");
+    // }
+    var compressedFile = zipper.sync.zip(SOURCEPath).compress();
+    compressedFile.save("zip_dist/" + zip + ".zip");
+
     console.log(`${colors.green('---------压缩完成 文件名是: ')}${colors.red.bold(zip)} ${colors.green('---------')}`);
+    if(needReturnBuffer){
+        var buff = compressedFile.memory();
+        return{
+            buffer:buff,
+            fileName:zip
+        };
+    }else{
+        return{
+            fileName:zip
+        };
+    }
+  
 }

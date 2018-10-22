@@ -36,6 +36,7 @@ npm install dist-zip --save-dev
  distZip();//不指定目录,默认dist
  /**
  distZip('src')//指定目录src
+ distZip(null,true,true)//不指定目录，添加版本号，要求返回buffer
  */
 
 ```
@@ -54,6 +55,11 @@ npm install dist-zip --save-dev
 > exmaple: dist-zip -v
 > output: xxxx_v1.0.0_xxx.zip
 
+- 压缩版后是否返回buffer
+> exmaple: dist-zip -b
+> return: {buf:xxxx,fileName:xxx.zip}
+
+
 ##更新
 
 - v1.2.0 引入optimist 添加版本号功能 -tag
@@ -62,5 +68,6 @@ npm install dist-zip --save-dev
 - v1.3.1 除去debug输出
 - v1.3.4 更新文件夹不存在输出为中文
 - v1.3.5 修复无package.json时不报错且无成功提示的bug
+- v1.4.0 增加文件名及buffer返回选项 -b
 
  
